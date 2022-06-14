@@ -12,9 +12,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function home()
+    public function main()
     {
-        return view('home', ['pages' => 'Home']);
+        $response = Http::withHeaders([
+            'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
+            'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=random');
+
+        $datas = $response['hits'];
+
+        return view('main', ['pages' => 'Home'], compact('datas'));
     }
 
     public function fetch_highprotein()
