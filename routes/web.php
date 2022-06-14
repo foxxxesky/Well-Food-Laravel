@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class, 'fetch_highprotein']);
+Route::get('/', [Controller::class, 'home']);
 Route::get('/highprotein', [Controller::class, 'fetch_highprotein']);
 Route::get('/lowcarb', [Controller::class, 'fetch_lowcarb']);

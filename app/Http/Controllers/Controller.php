@@ -12,6 +12,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function home()
+    {
+        return view('home', ['pages' => 'Home']);
+    }
+
     public function fetch_highprotein()
     {
         $response = Http::withHeaders([
@@ -19,10 +24,10 @@ class Controller extends BaseController
             'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
         ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=High-Protein');
  
-        // return json_decode($response->body());
-        $datas = $response['hits'];
+        return json_decode($response->body());
+        // $datas = $response['hits'];
         
-        return view('welcome', compact('datas'));
+        // return view('welcome', compact('datas'));
     }
     
     public function fetch_lowcarb()
