@@ -1,3 +1,19 @@
 * {
     font-family: "Inter", sans-serif;
 }
+
+.jumbotron {
+    padding: 150px 50px 150px 50px;
+    background-size: cover;
+}
+
+.heading_jumbotron {
+    font-size: 100px;
+    font-weight: 700;
+}
+
+.text_jumbotron {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
