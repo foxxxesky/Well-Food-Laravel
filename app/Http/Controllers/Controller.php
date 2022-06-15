@@ -31,10 +31,10 @@ class Controller extends BaseController
             'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
         ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=High-Protein');
  
-        return json_decode($response->body());
-        // $datas = $response['hits'];
+        // return json_decode($response->body());
+        $datas = $response['hits'];
         
-        // return view('welcome', compact('datas'));
+        return view('main', ['pages' => 'High-Protein'], compact('datas'));
     }
     
     public function fetch_lowcarb()
@@ -47,7 +47,59 @@ class Controller extends BaseController
         $datas = $response['hits'];
  
         // return json_decode($response->body());
-        return view('welcome', compact('datas'));
+        return view('main', ['pages' => 'Low-Carb'], compact('datas'));
+    }
+    
+    public function fetch_lowfat()
+    {
+        $response = Http::withHeaders([
+            'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
+            'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Low-Fat');
+
+        $datas = $response['hits'];
+ 
+        // return json_decode($response->body());
+        return view('main', ['pages' => 'Low-Fat'], compact('datas'));
+    }
+    
+    public function fetch_lowsodium()
+    {
+        $response = Http::withHeaders([
+            'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
+            'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Low-Sodium');
+
+        $datas = $response['hits'];
+ 
+        // return json_decode($response->body());
+        return view('main', ['pages' => 'Low-Sodium'], compact('datas'));
+    }
+    
+    public function fetch_lowsugar()
+    {
+        $response = Http::withHeaders([
+            'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
+            'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Low-Sugar');
+
+        $datas = $response['hits'];
+ 
+        // return json_decode($response->body());
+        return view('main', ['pages' => 'Low-Sugar'], compact('datas'));
+    }
+    
+    public function fetch_vegetarian()
+    {
+        $response = Http::withHeaders([
+            'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
+            'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Vegetarian');
+
+        $datas = $response['hits'];
+ 
+        // return json_decode($response->body());
+        return view('main', ['pages' => 'Vegetarian'], compact('datas'));
     }
 
     public function test()

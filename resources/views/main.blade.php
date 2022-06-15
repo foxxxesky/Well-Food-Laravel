@@ -12,17 +12,21 @@
                     <h5 class="card-title">{{ $data['recipe']['label'] }}</h5>
                     <div class="pt-3 pb-4">
                         <p class="card-text">Calories: <span
-                                class="text-success">{{ $data['recipe']['calories'] }}</span></p>
+                                class="text-success">{{ number_format((float)$data['recipe']['calories'], 2, '.', '') }}</span>
+                        </p>
                         <p class="card-text">Ingredients: <span>{{ count($data['recipe']['ingredients']) }}</span></p>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="#" class="btn btn-outline-success w-100">Detail</a>
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col">
+                                <a href="#" class="btn btn-outline-success w-100">Detail</a>
+                            </div>
+                            <div class="col">
+                                <a href="{{ $data['recipe']['url'] }}" target="blank"
+                                    class="btn btn-outline-warning w-100">Recipes</a>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a href="#" class="btn btn-outline-warning w-100">Recipes</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
