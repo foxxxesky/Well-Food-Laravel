@@ -45,14 +45,192 @@
         <!-- Modal -->
         <div class="modal fade" id="{{ 'detail'.$count }}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{ $data['recipe']['label'] }}</h5>
+                        <h4 class="modal-title fw-semibold" id="exampleModalLabel">{{ $data['recipe']['label'] }}</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <!-- full recipe -->
+                        <p>See Full Recipe on <span><a
+                                    href="{{ $data['recipe']['url'] }}">{{ $data['recipe']['source'] }}</a></span></p>
+                        <p class='fw-semibold'>Calories: <span
+                                class='text-success'>{{ number_format((float)$data['recipe']['calories'], 2, '.', '') }}</span>
+                        </p>
+                        <p class='fw-semibold'>Total Weight: <span
+                                class='text-success'>{{ number_format((float)$data['recipe']['totalWeight'], 2, '.', '') }}</span>
+                        </p>
+
+                        <!-- Ingredients -->
+                        <table class="table">
+                            <thead>
+                                <tr class="table-info fs-4">
+                                    <th scope="col">Ingredients</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data['recipe']['ingredientLines'] as $ingredient)
+                                <tr>
+                                    <td>{{ $ingredient }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <!-- Nutritions -->
+                        <table class="table">
+                            <thead>
+                                <tr class="table-info fs-4">
+                                    <th scope="col">Nutritions</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Energy -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['ENERC_KCAL']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['ENERC_KCAL']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['ENERC_KCAL']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fat -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['FAT']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['FAT']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['FAT']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Protein -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['PROCNT']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['PROCNT']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['PROCNT']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Cholestrol -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['CHOLE']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['CHOLE']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['CHOLE']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Sodium -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['NA']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['NA']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['NA']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Calsium -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['CA']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['CA']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['CA']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Magnesium -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['MG']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['MG']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['MG']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Zinc -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['ZN']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['ZN']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['ZN']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit A -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITA_RAE']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITA_RAE']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITA_RAE']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit C -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITC']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITC']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITC']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit B1 -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['THIA']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['THIA']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['THIA']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit B2 -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['RIBF']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['RIBF']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['RIBF']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit B3 -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['NIA']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['NIA']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['NIA']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit B6 -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITB6A']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITB6A']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITB6A']['unit'] }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- HealthLabels -->
+                        <table class="table">
+                            <thead>
+                                <tr class="table-info fs-4">
+                                    <th scope="col">Health Labels</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data['recipe']['healthLabels'] as $healthlabels)
+                                <tr>
+                                    <td>{{ $healthlabels }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
