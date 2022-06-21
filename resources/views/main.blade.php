@@ -53,8 +53,8 @@
                     </div>
                     <div class="modal-body">
                         <!-- full recipe -->
-                        <p>See Full Recipe on <span><a
-                                    href="{{ $data['recipe']['url'] }}">{{ $data['recipe']['source'] }}</a></span></p>
+                        <p>See Full Recipe on <span><a href="{{ $data['recipe']['url'] }}"
+                                    target='blank'>{{ $data['recipe']['source'] }}</a></span></p>
                         <p class='fw-semibold'>Calories: <span
                                 class='text-success'>{{ number_format((float)$data['recipe']['calories'], 2, '.', '') }}</span>
                         </p>
