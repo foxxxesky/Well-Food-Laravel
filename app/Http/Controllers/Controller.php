@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -102,23 +103,32 @@ class Controller extends BaseController
         return view('main', ['pages' => 'Vegetarian'], compact('datas'));
     }
 
+    public function detail(Request $request)
+    {
+        $id = $request->get('uri');
+        dd($id);
+        return view('detail');
+    }
+
     public function test()
     {
         $response = Http::withHeaders([
             'X-RapidAPI-Key' => env('X_RapidAPI_Key'),
             'X-RapidAPI-Host' => env('X_RapidAPI_Host'),
-        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Low-Carb')->json();
+        ])->get('https://edamam-recipe-search.p.rapidapi.com/search?q=Low-Carb');
         
         // foreach ($response as $index => $data) {
         //     dd($data);
         // }
 
+        return json_decode($response->body());
+
         // dd($response['hits'][0]['recipe']['label']);
         // dd($response['hits']);
 
-        $datas = $response['hits'];
+        // $datas = $response['hits'];
         // dd($data);
         
-        return view('welcome', compact('datas'));
+        // return view('welcome', compact('datas'));
     }
 }

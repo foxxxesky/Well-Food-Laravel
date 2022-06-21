@@ -21,3 +21,5 @@ Route::get('/lowfat', [Controller::class, 'fetch_lowfat']);
 Route::get('/lowsodium', [Controller::class, 'fetch_lowsodium']);
 Route::get('/lowsugar', [Controller::class, 'fetch_lowsugar']);
 Route::get('/vegetarian', [Controller::class, 'fetch_vegetarian']);
+Route::get('/test', [Controller::class, 'test']);
+Route::get('/detail', [Controller::class, 'detail']);
