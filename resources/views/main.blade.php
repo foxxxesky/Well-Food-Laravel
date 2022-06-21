@@ -78,6 +78,22 @@
                             </tbody>
                         </table>
 
+                        <!-- HealthLabels -->
+                        <table class="table">
+                            <thead>
+                                <tr class="table-info fs-4">
+                                    <th scope="col">Health Labels</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data['recipe']['healthLabels'] as $healthlabels)
+                                <tr>
+                                    <td>{{ $healthlabels }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
                         <!-- Nutritions -->
                         <table class="table">
                             <thead>
@@ -212,29 +228,48 @@
                                         {{ number_format((float)$data['recipe']['totalNutrients']['VITB6A']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITB6A']['unit'] }}
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
 
-                        <!-- HealthLabels -->
-                        <table class="table">
-                            <thead>
-                                <tr class="table-info fs-4">
-                                    <th scope="col">Health Labels</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data['recipe']['healthLabels'] as $healthlabels)
+                                <!-- Fit B12 -->
                                 <tr>
-                                    <td>{{ $healthlabels }}</td>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITB12']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITB12']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITB12']['unit'] }}
+                                    </td>
                                 </tr>
-                                @endforeach
+
+                                <!-- Fit D -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITD']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITD']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITD']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit E -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['TOCPHA']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['TOCPHA']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['TOCPHA']['unit'] }}
+                                    </td>
+                                </tr>
+
+                                <!-- Fit K -->
+                                <tr>
+                                    <td>
+                                        {{ $data['recipe']['totalNutrients']['VITK1']['label'] }}</td>
+                                    <td class='text-primary'>
+                                        {{ number_format((float)$data['recipe']['totalNutrients']['VITK1']['quantity'], 2, '.', '').' '.$data['recipe']['totalNutrients']['VITK1']['unit'] }}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
