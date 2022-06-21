@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
 * {
     font-family: "Inter", sans-serif;
 }
@@ -20,4 +22,9 @@
 
 .card-text {
     color: #7f7f7f;
+}
+
+#footer {
+    background-color: #4e944f;
+    color: white;
 }

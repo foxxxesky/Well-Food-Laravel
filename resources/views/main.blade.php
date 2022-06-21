@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pb-5">
     <div class="row">
         @php
         $i = 0

@@ -1,32 +1,32 @@
-<section id="footer">
+<section id="footer" class='pt-2'>
     <footer>
         <div class="container pt-5 pb-5">
             <div class="row justify-content-around">
-                <div class="col-3">
-                    <h4 id="shoecleaning-footer">Well Food</h4>
-                    <p id="desc-col1" class="pt-3">Berharap inovasi yang dibuat dapat membantu orang
-                        banyak. sehingga kedepannya dapat memotivasi mahasiswa lainnya untuk menciptakan inovasi yang
-                        lebih baik
-                        lagi.</p>
+                <div class="col-4">
+                    <h4 id="shoecleaning-footer" class='fw-semibold fs-2'>Well Food</h4>
+                    <p id="desc-col1" class="pt-3">Sebuah aplikasi yang memberikan
+                        info resep makanan sehat khusunya
+                        bagi orang-orang yang ingin
+                        melakukan diet atau pola hidup sehat. <br><br>
+
+                        Berharap inovasi yang dibuat dapat membantu orang banyak. Sehingga kedepannya dapat memotivasi
+                        mahasiswa lainnya untuk menciptakan inovasi yang lebih baik
+                    </p>
                 </div>
-                <div class="col-3">
-                    <h4 id="footer-text">Alamat</h4>
-                    <p id="desc-col1" class="pt-3">Jalan Bojongsoang, 22 XII
-                        Bandung, Indonesia</p>
+                <div class="col-4 text-center">
+                    <h4 id="footer-text" class='fw-semibold fs-2 pb-3'>Social Media</h4>
+                    <i class="bi bi-facebook fs-4"></i>
+                    <i class="bi bi-twitter pe-1 fs-4"></i>
+                    <i class="bi bi-whatsapp pe-1 fs-4"></i>
+                    <i class="bi bi-instagram pe-1 fs-4"></i>
                 </div>
-                <div class="col-3">
-                    <h4 id="footer-text">Hubungi Kami</h4>
-                    <p id="desc-col1" class="pt-3">+62 822 6969 9999 <br>
-                        wellfood.com</p>
+                <div class="col-4 text-center">
+                    <img src="/images/logo.png" alt=".." height='250px'>
                 </div>
-                <div class="col-3">
-                    <table>
-                        <tr>
-                            <td><img class="pe-2" src="images/fb.png" alt=""></td>
-                            <td><img src="images/twt.png" alt=""></td>
-                        </tr>
-                    </table>
-                </div>
+            </div>
+            <hr>
+            <div class="text-center pt-3">
+                <p>&#9400; Wellfood 2022</p>
             </div>
         </div>
     </footer>

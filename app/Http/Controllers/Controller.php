@@ -103,13 +103,6 @@ class Controller extends BaseController
         return view('main', ['pages' => 'Vegetarian'], compact('datas'));
     }
 
-    public function detail(Request $request)
-    {
-        $id = $request->get('uri');
-        dd($id);
-        return view('detail');
-    }
-
     public function test()
     {
         $response = Http::withHeaders([
